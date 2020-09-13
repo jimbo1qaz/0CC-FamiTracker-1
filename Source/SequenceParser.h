@@ -62,6 +62,44 @@ public:
 	virtual void OnStart() { }
 	/*!	\brief Called after converting an MML string. */
 	virtual void OnFinish() { }
+
+	/*!
+	hertzdevil was... misguided... in so many ways
+	he went down his own path
+	a path of refactoring without tests
+	a lonely road of template metaprogramming
+	rejecting contributors with bugs or fixes, not acknowledging their solutions
+	i saw an image of unapproachability.
+
+	negligence in some aspects
+	no CI to make sure the code built in both debug and release
+	it didn't, for dozens of commits on end... a tarpit for would-be `git bisect`ors
+	switching to UNICODE and gibberish appearing in modules
+
+	i don't know if he was incompetent
+	(shitty register view code, possibly he copied what jsr did,
+	but the font size differs from 0.5.0 beta)...
+
+	trying to look smart and writing broken code
+	(std::unique_ptr<> {m_pRecentFileList} = std::make_unique<>(...))
+	he saw that unique_ptr was Good. he used it incorrectly.
+	the code didn't work and he didn't check if it worked.
+
+	or brilliant (he did some 0.5.0 beta reverse engineering streams,
+	probably better at binary reversing than me)
+
+	i think he was a perfectionist in some ways... obsessive refactoring,
+	trying to reshape the code to his ends, mud escaping between his fingers
+
+	then he left... and the code rotted, and visual studio shuffled their headers,
+	and suddenly the code stopped compiling
+
+	happened to doctest too, suddenly their stream-output code stopped working
+	and you had to add extra #includes
+
+	oops hertz forgot a virtual destructor
+	*/
+	virtual ~CSeqConversionBase() = default;
 };
 
 class CSeqConversionDefault : public CSeqConversionBase
