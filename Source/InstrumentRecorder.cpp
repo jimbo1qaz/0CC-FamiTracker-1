@@ -301,6 +301,8 @@ void CInstrumentRecorder::ReleaseCurrent()
 
 void CInstrumentRecorder::InitRecordInstrument()
 {
+	using namespace std::string_literals;
+
 	if (m_pModule->GetInstrumentManager()->GetInstrumentCount() >= MAX_INSTRUMENTS) {
 		m_iDumpCount = 0; m_iRecordChannel = { }; return;
 	}
@@ -319,7 +321,7 @@ void CInstrumentRecorder::InitRecordInstrument()
 	if (!*m_pDumpInstrument) return;
 
 	auto str = std::string {FTEnv.GetSoundChipService()->GetChannelFullName(m_iRecordChannel)};
-	(*m_pDumpInstrument)->SetName(u8"from " + str);
+	(*m_pDumpInstrument)->SetName("from "s + str);
 
 	if (Type == INST_FDS) {
 		m_pSequenceCache[sequence_t::Arpeggio]->SetSetting(SETTING_ARP_FIXED);

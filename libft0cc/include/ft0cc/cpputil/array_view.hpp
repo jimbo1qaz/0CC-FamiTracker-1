@@ -27,6 +27,7 @@
 #include <limits>
 #include <type_traits>
 #include <cstddef>
+#include <stdexcept>  // std::out_of_range
 
 namespace details {
 

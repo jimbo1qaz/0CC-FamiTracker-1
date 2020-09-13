@@ -29,6 +29,7 @@
 #include <memory>
 #include <string>
 #include <limits>
+#include <stdexcept>
 
 #include "FamiTrackerDefines.h"
 #include "ft0cc/doc/pattern_note.hpp"

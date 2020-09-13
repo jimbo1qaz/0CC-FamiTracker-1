@@ -29,6 +29,8 @@
 #include "SequenceEditorMessage.h"		// // //
 #include "Instrument.h"		// // // inst_type_t
 
+#include <algorithm>
+
 // Sequence setting menu
 
 namespace {

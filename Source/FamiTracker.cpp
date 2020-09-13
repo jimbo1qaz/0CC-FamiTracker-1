@@ -49,6 +49,8 @@
 #include <afxpriv.h>
 #endif
 
+#include <iostream>
+
 // Single instance-stuff
 const WCHAR FT_SHARED_MUTEX_NAME[]	= L"FamiTrackerMutex";	// Name of global mutex
 const WCHAR FT_SHARED_MEM_NAME[]	= L"FamiTrackerWnd";		// Name of global memory area
@@ -219,7 +221,7 @@ BOOL CFamiTrackerApp::InitInstance()
 		}
 		auto &doc = static_cast<CFamiTrackerDoc &>(*pObject);
 		if (!doc.OnOpenDocument(cmdInfo.m_strFileName)) {
-			std::cerr << "Error: unable to open document: " << cmdInfo.m_strFileName << '\n';
+			std::cerr << "Error: unable to open document: idk" << '\n';
 			ExitProcess(1);
 			return FALSE;
 		}
@@ -236,7 +238,7 @@ BOOL CFamiTrackerApp::InitInstance()
 		}
 		render->SetRenderTrack(cmdInfo.track_);
 		if (!m_pSoundGenerator->RenderToFile((LPCWSTR)cmdInfo.m_strExportFile, std::move(render))) {
-			std::cerr << "Error: unable to render WAV file: " << cmdInfo.m_strExportFile << '\n';
+			std::cerr << "Error: unable to render WAV file: idk" << '\n';
 			ExitProcess(1);
 			return FALSE;
 		}

@@ -33,6 +33,7 @@
 #include "ControlPanelDlg.h"
 #include <memory>		// // //
 #include <tuple>		// // //
+#include <string_view>
 
 enum {
 	WM_USER_DISPLAY_MESSAGE_STRING = WM_APP,
