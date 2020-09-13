@@ -94,12 +94,12 @@ END_MESSAGE_MAP()
 std::shared_ptr<ft0cc::doc::dpcm_sample> CPCMImport::ShowDialog() {		// // //
 	// Return imported sample, or NULL if cancel/error
 
-	CFileSoundDialog OpenFileDialog(TRUE, 0, 0, OFN_HIDEREADONLY, LoadDefaultFilter(IDS_FILTER_WAV, L"*.wav"));
+	CFileSoundDialog OpenFileDialog(TRUE, 0, _T("C:/Users/nyanpasu/Music/Pure Furies.wav"), OFN_HIDEREADONLY, LoadDefaultFilter(IDS_FILTER_WAV, L"*.wav"));
 
-	auto path = FTEnv.GetSettings()->GetPath(PATH_WAV);		// // //
-	OpenFileDialog.m_pOFN->lpstrInitialDir = path.c_str();
-	if (OpenFileDialog.DoModal() == IDCANCEL)
-		return nullptr;
+	//auto path = FTEnv.GetSettings()->GetPath(PATH_WAV);		// // //
+	//OpenFileDialog.m_pOFN->lpstrInitialDir = path.c_str();
+	//if (OpenFileDialog.DoModal() == IDCANCEL)
+	//	return nullptr;
 
 	// Stop any preview
 	PlaySoundW(NULL, NULL, SND_NODEFAULT | SND_SYNC);
@@ -107,7 +107,7 @@ std::shared_ptr<ft0cc::doc::dpcm_sample> CPCMImport::ShowDialog() {		// // //
 	FTEnv.GetSettings()->SetPath(fs::path {(LPCWSTR)OpenFileDialog.GetPathName()}.parent_path(), PATH_WAV);
 
 	m_strPath	  = OpenFileDialog.GetPathName();
-	m_strFileName = OpenFileDialog.GetFileName();
+	m_strFileName = _T("a sample.wav");
 	m_pImported.reset();		// // //
 
 	// Open file and read header
