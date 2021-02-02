@@ -29,6 +29,7 @@
 #include "NumConv.h"
 #include "str_conv/str_conv.hpp"
 #include "DPI.h"
+#include <algorithm>
 
 using namespace GraphEditorComponents;
 
